@@ -20,4 +20,12 @@
         android:titleTextAppearance="@style/MyMenuTextAppearance"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/info"
+        android:title="Info"
+        android:icon="@drawable/icon"
+        android:titleTextAppearance="@style/MyMenuTextAppearance"
+        app:showAsAction="always" />
+
+
 </menu>
