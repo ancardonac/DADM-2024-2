@@ -45,6 +45,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints" />
 
                 <ImageView
@@ -64,6 +65,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints" />
 
                 <ImageView
@@ -88,6 +90,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -109,6 +112,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -127,6 +131,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -145,6 +150,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -166,6 +172,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -184,6 +191,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -203,6 +211,7 @@
                     style="@style/column"
                     android:background="@null"
                     android:textColor="@color/white"
+                    android:textSize="5dp"
                     tools:ignore="MissingConstraints"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
