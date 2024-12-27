@@ -3,6 +3,7 @@ package com.example.tic_tac_toe
 import android.app.AlertDialog
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
 
     private var boardList = mutableListOf<Button>()
     private val imageViews = mutableListOf<ImageView>()
+    private var savedBoardStates  = ArrayList<String>()
 
     private lateinit var playerSound: MediaPlayer // Sonido del jugador
     private lateinit var machineSound: MediaPlayer // Sonido de la máquina
@@ -158,6 +160,55 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        savedBoardStates.clear()
+        for (i in boardList.indices) {
+            val symbol = boardList[i].text.toString().ifEmpty { "null" }
+            savedBoardStates.add(symbol)
+        }
+        Log.d("TicTacToe", "Saved board states: $savedBoardStates")
+        outState.putStringArrayList("savedBoardStates", savedBoardStates)
+        outState.putInt("difficultyLevel", DifficultyLevel.values().indexOf(dificultLevel))
+        Log.d("TicTacToe", "Saved board states: $savedBoardStates") // Log the saved states
+
+    }
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        // Restore the board state
+        val restoredStates = savedInstanceState.getStringArrayList("savedBoardStates") ?: ArrayList()
+
+        //for (i in boardList.indices) {
+        //    boardList[i].text = restoredStates.getOrNull(i) ?: ""
+        //}
+        Log.d("TicTacToe", "Restored board states: $restoredStates") // Log the restored states
+        for (i in boardList.indices) {
+            Log.d("TicTacToe","index: $i")
+            //Log.d("TicTacToe","boardList: $boardList")
+            val button = boardList[i]
+            val symbol = if (restoredStates.getOrNull(i) == "null") null else restoredStates.getOrNull(i)
+            Log.d("TicTacToe","symbol: $symbol")
+            button.text = symbol
+
+
+            when (symbol) {
+                "X" -> imageViews[i].setImageResource(R.drawable.sword)
+                "O" -> imageViews[i].setImageResource(R.drawable.dragon)
+                else -> imageViews[i].setImageResource(R.drawable.puerta)
+            }
+        }
+        val difficultyLevelOrdinal = savedInstanceState.getInt("difficultyLevel")
+        setDificultLevel( DifficultyLevel.values()[difficultyLevelOrdinal])
+        Log.d("TicTacToe", "Restored board states: $restoredStates") // Log the restored states
+        // Update the UI based on the restored state
+        updateBoardUI()
+    }
+
+    private fun updateBoardUI() {
+
+    }
+
 
 
     private fun initBoard() {
@@ -179,7 +230,11 @@ class MainActivity : AppCompatActivity() {
         imageViews.add(binding.image7)
         imageViews.add(binding.image8)
         imageViews.add(binding.image9)
-
+        for (button in boardList) {
+            if (button.text.isEmpty()) {
+                button.text = "" // Default to an empty string if not already set
+            }
+        }
         for(imageView in imageViews)
         {
 
