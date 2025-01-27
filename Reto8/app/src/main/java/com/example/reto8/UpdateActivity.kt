@@ -120,6 +120,7 @@ class UpdateActivity : AppCompatActivity() {
         builder.setPositiveButton("Si"){dialog, which ->
             val  myDB =  MyDatabaseHelper(this);
             myDB.deleteOneRow(id.toString())
+            setResult(RESULT_OK)
             finish()
         }
         builder.setNegativeButton("No"){dialog, which ->{}
